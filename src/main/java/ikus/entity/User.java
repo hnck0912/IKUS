@@ -1,31 +1,30 @@
 package ikus.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Entity
+@Data
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
 @Table(name = "users")
 public class User {
-
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "full_name", nullable = false)
-    private String fullName;
+    @Column(unique = true, nullable = false)
+    private String username;
 
-    @Column(name = "email", unique = true, nullable = false)
+    @Column(nullable = false)
+    private String password;
+
+    private String fullName;
     private String email;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role")
     private UserRole role;
-
 }
