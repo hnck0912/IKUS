@@ -16,14 +16,16 @@ import java.time.LocalDate;
 @Table(name = "tasks")
 public class Task {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
     private String title;
 
     @Enumerated(EnumType.STRING)
     private TaskPriority priority;
 
     @Enumerated(EnumType.STRING)
-    private TaskStatus status;
+    private TaskStatus status = TaskStatus.TODO;
 
     private LocalDate dueDate;
 
