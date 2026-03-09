@@ -13,7 +13,6 @@ public class ProjectController {
     @Autowired
     private ikus.repository.ProjectRepository projectRepository;
 
-    // API tạo Project mới
     @PostMapping
     public ikus.entity.Project createProject(@RequestBody ikus.entity.Project project) {
         return projectRepository.save(project);

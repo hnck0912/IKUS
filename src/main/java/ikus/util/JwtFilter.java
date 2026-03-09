@@ -1,7 +1,6 @@
 package ikus.config;
 
 import ikus.service.CustomUserDetailsService;
-import ikus.service.UserService;
 import ikus.util.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -20,8 +19,10 @@ import java.io.IOException;
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
-    @Autowired private JwtUtil jwtUtil;
-    @Autowired private CustomUserDetailsService userDetailsService;
+    @Autowired
+    private JwtUtil jwtUtil;
+    @Autowired
+    private CustomUserDetailsService userDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

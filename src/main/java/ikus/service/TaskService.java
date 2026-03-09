@@ -1,7 +1,12 @@
 package ikus.service;
 
-import ikus.entity.*;
-import ikus.repository.*;
+import ikus.entity.Project;
+import ikus.entity.Task;
+import ikus.entity.TaskStatus;
+import ikus.entity.User;
+import ikus.repository.ProjectRepository;
+import ikus.repository.TaskRepository;
+import ikus.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +16,12 @@ import java.util.List;
 @Service
 public class TaskService {
 
-    @Autowired private TaskRepository taskRepository;
-    @Autowired private ProjectRepository projectRepository;
-    @Autowired private UserRepository userRepository;
+    @Autowired
+    private TaskRepository taskRepository;
+    @Autowired
+    private ProjectRepository projectRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     public Task createTask(Task task, String projectId) {
         Project project = projectRepository.findById(projectId)
