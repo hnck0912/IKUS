@@ -1,6 +1,6 @@
 package ikus.entity;
 
-import jakarta.persistence.*; // Dùng Jakarta cho Spring Boot 3
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

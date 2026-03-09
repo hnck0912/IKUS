@@ -1,8 +1,10 @@
 package ikus.controller;
 
+import ikus.dto.ApiResponse;
 import ikus.entity.Task;
 import ikus.entity.TaskStatus;
 import ikus.service.TaskService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,35 +17,42 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    // API 1: Tạo Task (Mục 3)
     @PostMapping
-    public Task createTask(@RequestBody Task task, @RequestParam String projectId) {
-        return taskService.createTask(task, projectId);
+    public ApiResponse<Task> createTask(@RequestBody @Valid Task task,
+                                        @RequestParam String projectId) {
+
+        Task newTask = taskService.createTask(task, projectId);
+
+        return new ApiResponse<>(1000, "Tạo công việc thành công", newTask);
     }
 
-    // API 2: Gán User (Mục 5)
-    // PUT /api/tasks/{taskId}/assign/{userId}
     @PutMapping("/{taskId}/assign/{userId}")
-    public Task assignTask(@PathVariable String taskId, @PathVariable String userId) {
-        return taskService.assignTask(taskId, userId);
+    public ApiResponse<Task> assignTask(@PathVariable String taskId,
+                                        @PathVariable String userId) {
+
+        Task updatedTask = taskService.assignTask(taskId, userId);
+        return new ApiResponse<>(1000, "Giao việc thành công", updatedTask);
     }
 
-    // API 3: Update trạng thái (Mục 7)
-    // PUT /api/tasks/{taskId}/status?status=DONE
     @PutMapping("/{taskId}/status")
-    public Task updateStatus(@PathVariable String taskId, @RequestParam TaskStatus status) {
-        return taskService.updateStatus(taskId, status);
+    public ApiResponse<Task> updateStatus(@PathVariable String taskId,
+                                          @RequestParam TaskStatus status) {
+
+        Task updatedTask = taskService.updateStatus(taskId, status);
+        return new ApiResponse<>(1000, "Cập nhật trạng thái thành công", updatedTask);
     }
 
-    // API 4: List theo Project (Mục 9)
     @GetMapping("/project/{projectId}")
-    public List<Task> getByProject(@PathVariable String projectId) {
-        return taskService.getTasksByProject(projectId);
+    public ApiResponse<List<Task>> getByProject(@PathVariable String projectId) {
+
+        List<Task> tasks = taskService.getTasksByProject(projectId);
+        return new ApiResponse<>(1000, "Lấy danh sách thành công", tasks);
     }
 
-    // API 5: List theo User (Mục 10)
     @GetMapping("/user/{userId}")
-    public List<Task> getByUser(@PathVariable String userId) {
-        return taskService.getTasksByUser(userId);
+    public ApiResponse<List<Task>> getByUser(@PathVariable String userId) {
+
+        List<Task> tasks = taskService.getTasksByUser(userId);
+        return new ApiResponse<>(1000, "Lấy danh sách thành công", tasks);
     }
 }

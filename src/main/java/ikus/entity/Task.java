@@ -1,11 +1,8 @@
 package ikus.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import jakarta.validation.constraints.*;
+import lombok.*;
 import java.time.LocalDate;
 
 @Setter
@@ -19,6 +16,8 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    @NotBlank(message = "Tiêu đề không được để trống")
+    @Size(min = 3, message = "Tiêu đề phải có ít nhất 3 ký tự")
     private String title;
 
     @Enumerated(EnumType.STRING)
@@ -27,6 +26,7 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private TaskStatus status = TaskStatus.TODO;
 
+    @Future(message = "Deadline phải là ngày trong tương lai")
     private LocalDate dueDate;
 
     @ManyToOne

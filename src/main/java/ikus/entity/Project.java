@@ -1,7 +1,7 @@
-package ikus.entity; // Đảm bảo đúng package của bạn
+package ikus.entity;
 
 import jakarta.persistence.*;
-import com.fasterxml.jackson.annotation.JsonIgnore; // Import này để tránh lỗi lặp vô hạn
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
