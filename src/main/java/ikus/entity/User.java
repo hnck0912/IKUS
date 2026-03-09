@@ -24,9 +24,6 @@ public class User {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    public enum UserRole {
-        MANAGER, STAFF, ADMIN
-    }
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private UserRole role;

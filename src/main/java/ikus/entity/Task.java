@@ -1,42 +1,38 @@
 package ikus.entity;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "tasks")
 public class Task {
+    @Id
     private String id;
-
     private String title;
 
-    public enum TaskStatus {
-        OPEN, IN_PROGRESS, REVIEW, DONE, CANCELLED
-    }
-    private TaskStatus status;
-
-    public enum TaskPriority {
-        LOW, MEDIUM, HIGH
-    }
+    @Enumerated(EnumType.STRING)
     private TaskPriority priority;
+
+    @Enumerated(EnumType.STRING)
+    private TaskStatus status;
 
     private LocalDate dueDate;
 
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
+    @ManyToOne
+    @JoinColumn(name = "assignee_id")
     private User assignee;
 
-    public Task(String id, String title, TaskPriority priority, LocalDate dueDate) {
-        this.id = id;
-        this.title = title;
-        this.priority = priority;
-        this.dueDate = dueDate;
-        this.status = TaskStatus.OPEN;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("entity.ikus.Task[ID=%s, Title=%s, Status=%s, Assignee=%s]",
-                id, title, status, (assignee != null ? assignee.getFullName() : "Unassigned"));
-    }
 }
