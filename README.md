@@ -1,6 +1,6 @@
 Đây là dự án backend quản lý công việc mình tự phát triển bằng Spring Boot. Ứng dụng cung cấp các RESTful API để quản lý dự án, giao việc cho nhân viên và theo dõi tiến độ.
 
-+ Các chức năng chính: 
+1. Các chức năng chính: 
 
  Quản lý tài khoản: Đăng ký, đăng nhập và bảo mật bằng JWT token.
 
@@ -12,7 +12,7 @@
 
  Validate dữ liệu: Chuẩn hóa dữ liệu đầu vào và bắt lỗi tập trung (Global Exception Handling) để trả về message thân thiện.
 
-+ Stack công nghệ:
+2. Stack công nghệ:
 
  Ngôn ngữ: Java 17
 
@@ -24,7 +24,7 @@
 
  Document API: Swagger UI
 
-+ Hướng dẫn chạy dự án ở máy Local:
+3. Hướng dẫn chạy dự án ở máy Local:
 
 B1 Clone source code về máy.
 
