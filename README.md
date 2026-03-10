@@ -2,27 +2,27 @@
 
 Các chức năng chính: 
 
-1 Quản lý tài khoản: Đăng ký, đăng nhập và bảo mật bằng JWT token.
+ Quản lý tài khoản: Đăng ký, đăng nhập và bảo mật bằng JWT token.
 
-2 Phân quyền (Role-based): Sử dụng Spring Security để chia quyền (ví dụ: chỉ tài khoản Manager mới được phép tạo dự án mới).
+ Phân quyền (Role-based): Sử dụng Spring Security để chia quyền (ví dụ: chỉ tài khoản Manager mới được phép tạo dự án mới).
 
-3 Quản lý dự án (Project): Thêm, sửa, xem, xóa thông tin dự án.
+ Quản lý dự án (Project): Thêm, sửa, xem, xóa thông tin dự án.
 
-4 Quản lý công việc (Task): Tạo task, thiết lập deadline, giao việc cho user cụ thể và cập nhật trạng thái (TODO, IN_PROGRESS, DONE).
+ Quản lý công việc (Task): Tạo task, thiết lập deadline, giao việc cho user cụ thể và cập nhật trạng thái (TODO, IN_PROGRESS, DONE).
 
-5 Validate dữ liệu: Chuẩn hóa dữ liệu đầu vào và bắt lỗi tập trung (Global Exception Handling) để trả về message thân thiện.
+ Validate dữ liệu: Chuẩn hóa dữ liệu đầu vào và bắt lỗi tập trung (Global Exception Handling) để trả về message thân thiện.
 
 Stack công nghệ:
 
-1 Ngôn ngữ: Java 17
+ Ngôn ngữ: Java 17
 
-2 Framework: Spring Boot 3.x
+ Framework: Spring Boot 3.x
 
-3 Database: SQL Server
+ Database: SQL Server
 
-4 Authentication: Spring Security & JWT
+ Authentication: Spring Security & JWT
 
-5 Document API: Swagger UI
+ Document API: Swagger UI
 
 Hướng dẫn chạy dự án ở máy Local
 1. Clone source code về máy.
