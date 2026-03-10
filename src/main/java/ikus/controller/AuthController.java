@@ -27,8 +27,10 @@ public class AuthController {
     @PostMapping("/register")
     public ApiResponse<User> register(@RequestBody User request) {
 
+        System.out.println("Co nguoi dang ky acc: " + request.getUsername());
+
         if (userRepository.existsByUsername(request.getUsername())) {
-            throw new RuntimeException("Lỗi: Tên đăng nhập '" + request.getUsername() + "' đã tồn tại!");
+            throw new RuntimeException("Ten dang nhap da bi trung, thu ten khac!");
         }
 
         request.setPassword(passwordEncoder.encode(request.getPassword()));
@@ -39,9 +41,9 @@ public class AuthController {
 
         User savedUser = userRepository.save(request);
 
-        savedUser.setPassword("******");
+        savedUser.setPassword(null);
 
-        return new ApiResponse<>(1000, "Đăng ký thành công", savedUser);
+        return new ApiResponse<>(1000, "Dang ky thanh cong!", savedUser);
     }
 
     @PostMapping("/login")
