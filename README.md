@@ -1,6 +1,6 @@
 Đây là dự án backend quản lý công việc mình tự phát triển bằng Spring Boot. Ứng dụng cung cấp các RESTful API để quản lý dự án, giao việc cho nhân viên và theo dõi tiến độ.
 
-Các chức năng chính: 
+- Các chức năng chính: 
 
  Quản lý tài khoản: Đăng ký, đăng nhập và bảo mật bằng JWT token.
 
@@ -12,7 +12,7 @@ Các chức năng chính:
 
  Validate dữ liệu: Chuẩn hóa dữ liệu đầu vào và bắt lỗi tập trung (Global Exception Handling) để trả về message thân thiện.
 
-Stack công nghệ:
+- Stack công nghệ:
 
  Ngôn ngữ: Java 17
 
@@ -24,9 +24,14 @@ Stack công nghệ:
 
  Document API: Swagger UI
 
-Hướng dẫn chạy dự án ở máy Local
-1. Clone source code về máy.
-2. Mở SQL Server và tạo một database mới tên là `TTIKUS`.
-3. Mở file cấu hình `src/main/resources/application-dev.properties`, sửa lại config kết nối database (username, password) cho khớp với máy của bạn.
-4. Build và chạy dự án thông qua class `IkusApplication.java` hoặc dùng Maven Wrapper.
-5. Sau khi server start ở port 8080, mở trình duyệt truy cập vào `http://localhost:8080/swagger-ui/index.html` để xem danh sách API và test trực tiếp.
+- Hướng dẫn chạy dự án ở máy Local:
+
+B1 Clone source code về máy.
+
+B2 Mở SQL Server và tạo một database mới tên là `TTIKUS`.
+
+B3 Mở file cấu hình `src/main/resources/application-dev.properties`, sửa lại config kết nối database (username, password) cho khớp với máy của bạn.
+
+B4 Build và chạy dự án thông qua class `IkusApplication.java` hoặc dùng Maven Wrapper.
+
+B5 Sau khi server start ở port 8080, mở trình duyệt truy cập vào `http://localhost:8080/swagger-ui/index.html` để xem danh sách API và test trực tiếp.
